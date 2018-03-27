@@ -149,6 +149,15 @@ class Pedido extends Dominio\AbstractModel
         return $this->status;
     }
 
+    public function getStatusDescricao()
+    {
+        $lista = self::getStatusLista();
+        if ($this->getStatus() && isset($lista[$this->getStatus()])) {
+            return $lista[$this->getStatus()];
+        }
+        return $this->getStatus();
+    }
+
     static public function getStatusLista()
     {
         return array(
