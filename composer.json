@@ -1,0 +1,24 @@
+{
+    "name": "magazord-plataforma/madeira-madeira-marketplace",
+    "description": "SDK PHP de integração com a API do marketplace do Madeira Madeira",
+    "keywords": ["marketplace", "madeira madeira", "magazord"],
+    "type": "library",
+    "license": "MIT",    
+    "require-dev": {
+    },
+    "authors": [
+        {
+            "name": "Desenvolvimento Magazord",
+            "email": "webmaster@magazord.com.br"
+        }
+    ],    
+    "require": {
+        "php": ">=5.5.0",
+        "nategood/httpful": "0.2.20"
+    },
+    "autoload": {
+        "psr-4": {
+            "MadeiraMadeira\\": "MadeiraMadeira/"
+        }
+    }
+}
