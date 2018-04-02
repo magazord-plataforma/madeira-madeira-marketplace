@@ -30,7 +30,7 @@ class TestesProduto extends AbstractTestes
     public function consultaCategoria()
     {
         $sender = $this->getSender();
-        $filtro = new Dominio\ListFilter();
+        $filtro = new Dominio\Categoria\CategoriaListFilter();
         $filtro->setLimit(100);
         $filtro->setOffset(0);
         do {
