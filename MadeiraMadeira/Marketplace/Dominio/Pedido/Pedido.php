@@ -62,6 +62,7 @@ class Pedido extends Dominio\AbstractModel
     protected $datahora_rastreamento;
     protected $data_previsao_entrega;
     protected $datahora_entrega;
+    protected $pedido_mm;
 
     /**
      * Mapeamento de propriedades que sao objetos ou arrays
@@ -345,6 +346,16 @@ class Pedido extends Dominio\AbstractModel
     public function setDatahoraEntrega($datahoraEntrega)
     {
         $this->datahora_entrega = $datahoraEntrega;
+    }
+
+    public function getPedidoMm()
+    {
+        return $this->pedido_mm;
+    }
+
+    public function setPedidoMm($pedidoMm)
+    {
+        $this->pedido_mm = $pedidoMm;
     }
 
 }
