@@ -44,16 +44,28 @@ class Pedido extends Dominio\AbstractModel
      * @var DadosEntrega
      */
     protected $dados_entrega;
+
+    /**
+     * @var TrackingEntregue[]
+     */
     protected $entrega;
     protected $subtotal;
     protected $frete;
     protected $total;
 
     /**
-     * @var Pagamento
+     * @var Pagamento[]
      */
     protected $pagamento;
+
+    /**
+     * @var TrackingFaturado[]
+     */
     protected $faturamento;
+
+    /**
+     * @var TrackingEnvio[]
+     */
     protected $envio;
     protected $pesquisa_satisfacao;
     protected $datahora_confirmacao;
@@ -72,7 +84,10 @@ class Pedido extends Dominio\AbstractModel
         'skus' => PedidoItem::class,
         'comprador' => Comprador::class,
         'dados_entrega' => DadosEntrega::class,
-        'pagamento' => Pagamento::class
+        'pagamento' => Pagamento::class,
+        'faturamento' => TrackingFaturado::class,
+        'envio' => TrackingEnvio::class,
+        'entrega' => TrackingEntregue::class
     );
 
     public function getIdPedido()
@@ -253,7 +268,7 @@ class Pedido extends Dominio\AbstractModel
         return $this->pagamento;
     }
 
-    public function setPagamento(Pagamento $pagamento = null)
+    public function setPagamento($pagamento)
     {
         $this->pagamento = $pagamento;
     }
