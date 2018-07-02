@@ -22,6 +22,13 @@ class ProdutoResponse extends Produto
 
     protected $id_produto_fila;
     protected $id_seller;
+    protected $nivel_1;
+    protected $nivel_2;
+    protected $nivel_3;
+    protected $nivel_4;
+    protected $nivel_5;
+    protected $nivel_6;
+    protected $nivel_7;
     protected $status;
     protected $tipo_atualizacao;
     protected $historico_validacao;
@@ -57,6 +64,103 @@ class ProdutoResponse extends Produto
     public function setStatus($status)
     {
         $this->status = $status;
+    }
+
+    public function getNivel1()
+    {
+        return $this->nivel_1;
+    }
+
+    public function setNivel1($nivel1)
+    {
+        $this->nivel_1 = $nivel1;
+    }
+
+    public function getNivel2()
+    {
+        return $this->nivel_2;
+    }
+
+    public function setNivel2($nivel2)
+    {
+        $this->nivel_2 = $nivel2;
+    }
+
+    public function getNivel3()
+    {
+        return $this->nivel_3;
+    }
+
+    public function setNivel3($nivel3)
+    {
+        $this->nivel_3 = $nivel3;
+    }
+
+    public function getNivel4()
+    {
+        return $this->nivel_4;
+    }
+
+    public function setNivel4($nivel4)
+    {
+        $this->nivel_4 = $nivel4;
+    }
+
+    public function getNivel5()
+    {
+        return $this->nivel_5;
+    }
+
+    public function setNivel5($nivel5)
+    {
+        $this->nivel_5 = $nivel5;
+    }
+
+    public function getNivel6()
+    {
+        return $this->nivel_6;
+    }
+
+    public function setNivel6($nivel6)
+    {
+        $this->nivel_6 = $nivel6;
+    }
+
+    public function getNivel7()
+    {
+        return $this->nivel_7;
+    }
+
+    public function setNivel7($nivel7)
+    {
+        $this->nivel_7 = $nivel7;
+    }
+
+    public function getDescricaoCategoria()
+    {
+        $descricao = array();
+        if ($this->getNivel7()) {
+            $descricao[] = $this->getNivel7();
+        }
+        if ($this->getNivel6()) {
+            $descricao[] = $this->getNivel6();
+        }
+        if ($this->getNivel5()) {
+            $descricao[] = $this->getNivel5();
+        }
+        if ($this->getNivel4()) {
+            $descricao[] = $this->getNivel4();
+        }
+        if ($this->getNivel3()) {
+            $descricao[] = $this->getNivel3();
+        }
+        if ($this->getNivel2()) {
+            $descricao[] = $this->getNivel2();
+        }
+        if ($this->getNivel1()) {
+            $descricao[] = $this->getNivel1();
+        }
+        return implode(' < ', $descricao);
     }
 
     public function getTipoAtualizacao()
