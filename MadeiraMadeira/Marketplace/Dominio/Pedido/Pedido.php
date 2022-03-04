@@ -75,6 +75,15 @@ class Pedido extends Dominio\AbstractModel
     protected $data_previsao_entrega;
     protected $datahora_entrega;
     protected $pedido_mm;
+    protected $madeira_envios;
+
+    /**
+     * @var CotacaoItem[]
+     */
+    protected $cotacao_info;
+    protected $cnpj_intermediador;
+    protected $cnpj_pagador;
+    protected $parcelado;
 
     /**
      * Mapeamento de propriedades que sao objetos ou arrays
@@ -87,7 +96,8 @@ class Pedido extends Dominio\AbstractModel
         'pagamento' => Pagamento::class,
         'faturamento' => TrackingFaturado::class,
         'envio' => TrackingEnvio::class,
-        'entrega' => TrackingEntregue::class
+        'entrega' => TrackingEntregue::class,
+        'cotacao_info' => CotacaoItem::class
     );
 
     public function getIdPedido()
@@ -371,6 +381,56 @@ class Pedido extends Dominio\AbstractModel
     public function setPedidoMm($pedidoMm)
     {
         $this->pedido_mm = $pedidoMm;
+    }
+
+    public function getMadeiraEnvios()
+    {
+        return $this->madeira_envios;
+    }
+
+    public function setMadeiraEnvios($madeiraEnvios)
+    {
+        $this->madeira_envios = $madeiraEnvios;
+    }
+
+    public function getCotacaoInfo()
+    {
+        return $this->cotacao_info;
+    }
+
+    public function setCotacaoInfo(array $cotacaoInfo = null)
+    {
+        $this->cotacao_info = $cotacaoInfo;
+    }
+
+    public function getCnpjIntermediador()
+    {
+        return $this->cnpj_intermediador;
+    }
+
+    public function setCnpjIntermediador($cnpjIntermediador)
+    {
+        $this->cnpj_intermediador = $cnpjIntermediador;
+    }
+
+    public function getCnpjPagador()
+    {
+        return $this->cnpj_pagador;
+    }
+
+    public function setCnpjPagador($cnpjPagador)
+    {
+        $this->cnpj_pagador = $cnpjPagador;
+    }
+
+    public function getParcelado()
+    {
+        return $this->parcelado;
+    }
+
+    public function setParcelado($parcelado)
+    {
+        $this->parcelado = $parcelado;
     }
 
 }

@@ -18,6 +18,9 @@ class PedidoItem extends Dominio\AbstractModel
     protected $skuseller;
     protected $quantidade;
     protected $valor_unitario;
+    protected $frete;
+    protected $id_pedido_item;
+    protected $madeira_envios;
 
     public function getSku()
     {
@@ -77,6 +80,36 @@ class PedidoItem extends Dominio\AbstractModel
     public function setValorUnitario($valorUnitario)
     {
         $this->valor_unitario = $valorUnitario;
+    }
+
+    public function getFrete()
+    {
+        return $this->frete;
+    }
+
+    public function setFrete($frete)
+    {
+        $this->frete = $frete;
+    }
+
+    public function getIdPedidoItem()
+    {
+        return $this->id_pedido_item;
+    }
+
+    public function setIdPedidoItem($idPedidoItem)
+    {
+        $this->id_pedido_item = $idPedidoItem;
+    }
+
+    public function getMadeiraEnvios()
+    {
+        return $this->madeira_envios;
+    }
+
+    public function setMadeiraEnvios($madeiraEnvios)
+    {
+        $this->madeira_envios = $madeiraEnvios;
     }
 
 }
