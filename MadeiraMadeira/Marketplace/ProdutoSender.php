@@ -379,5 +379,33 @@ class ProdutoSender extends CategoriaSender
         $this->setErrorResponseClass(Dominio\LoteResponse::class);
         return $this->send('/produto/frete/sku', $lote);
     }
+    
+    /**
+     * Informar prazo de expedição por sku
+     * @param Dominio\Lote $lote
+     * @return Dominio\LoteResponse
+     */
+    public function atualizarPrazoExpedicaoProdutoLote(Dominio\Lote $lote)
+    {
+        $this->reset();
+        $this->setMethod(self::METHOD_PUT);
+        $this->setSuccessResponseClass(Dominio\LoteResponse::class);
+        $this->setErrorResponseClass(Dominio\LoteResponse::class);
+        return $this->send('/produto/prazo-expedicao', $lote);
+    }    
+    
+    /**
+     * Atualização em massa de Preço, Estoque, Status e Tabela de Frete, Dimensões de Frete
+     * @param Dominio\Lote $lote
+     * @return Dominio\LoteResponse
+     */
+    public function atualizarBulkProdutoLote(Dominio\Lote $lote)
+    {
+        $this->reset();
+        $this->setMethod(self::METHOD_PUT);
+        $this->setSuccessResponseClass(Dominio\LoteResponse::class);
+        $this->setErrorResponseClass(Dominio\LoteResponse::class);
+        return $this->send('/produto/bulk', $lote);
+    }       
 
 }

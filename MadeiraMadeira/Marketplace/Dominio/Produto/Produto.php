@@ -115,6 +115,8 @@ class Produto extends Dominio\AbstractModel
      * @var string
      */
     protected $tipo_entrega;
+    
+    protected $prazo_expedicao;
 
     /**
      * Mapeamento de propriedades que sao objetos ou arrays
@@ -312,6 +314,16 @@ class Produto extends Dominio\AbstractModel
     public function setTipoEntrega($tipoEntrega)
     {
         $this->tipo_entrega = $tipoEntrega;
+    }
+    
+    public function getPrazoExpedicao()
+    {
+        return $this->prazo_expedicao;
+    }
+
+    public function setPrazoExpedicao($prazoExpedicao)
+    {
+        $this->prazo_expedicao = $prazoExpedicao;
     }
 
 }
