@@ -84,6 +84,8 @@ class Pedido extends Dominio\AbstractModel
     protected $cnpj_intermediador;
     protected $cnpj_pagador;
     protected $parcelado;
+    protected $parcelas;
+    protected $pagamento_fluxo;
 
     /**
      * Mapeamento de propriedades que sao objetos ou arrays
@@ -431,6 +433,26 @@ class Pedido extends Dominio\AbstractModel
     public function setParcelado($parcelado)
     {
         $this->parcelado = $parcelado;
+    }
+    
+    public function getParcelas()
+    {
+        return $this->parcelas;
+    }
+
+    public function setParcelas($parcelas)
+    {
+        $this->parcelas = $parcelas;
+    }
+
+    public function getPagamentoFluxo()
+    {
+        return $this->pagamento_fluxo;
+    }
+
+    public function setPagamentoFluxo($pagamentoFluxo)
+    {
+        $this->pagamento_fluxo = $pagamentoFluxo;
     }
 
 }
