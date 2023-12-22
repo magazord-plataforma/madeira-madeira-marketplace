@@ -466,4 +466,16 @@ class Pedido extends Dominio\AbstractModel
         $this->transportadoras = $transportadoras;
     }
 
+    public function isMadeiraEnvios()
+    {
+        if ($this->getSkus()) {
+            foreach ($this->getSkus() as $pedidoItem) {
+                if ($pedidoItem->getMadeiraEnvios()) {
+                    return true;
+                }
+            } 
+        }
+        return false;
+    }
+
 }
