@@ -21,6 +21,7 @@ class PedidoItem extends Dominio\AbstractModel
     protected $frete;
     protected $id_pedido_item;
     protected $madeira_envios;
+    protected $transportadora_nome;
 
     public function getSku()
     {
@@ -110,6 +111,16 @@ class PedidoItem extends Dominio\AbstractModel
     public function setMadeiraEnvios($madeiraEnvios)
     {
         $this->madeira_envios = $madeiraEnvios;
+    }
+
+    public function getTransportadoraNome()
+    {
+        return $this->transportadora_nome;
+    }
+
+    public function setTransportadoraNome($transportadoraNome)
+    {
+        $this->transportadora_nome = $transportadoraNome;
     }
 
 }

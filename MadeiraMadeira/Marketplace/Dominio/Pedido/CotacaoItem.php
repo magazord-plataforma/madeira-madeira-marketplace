@@ -18,6 +18,10 @@ class CotacaoItem extends Dominio\AbstractModel
     protected $metodo_transporte;
     protected $metodo_transporte_display;
     protected $estivativa_transporte_id;
+    protected $id_madeira_envios_transportadora;
+    protected $total;
+    protected $prazo;
+    protected $expedicao;
 
     public function getSku()
     {
@@ -77,6 +81,46 @@ class CotacaoItem extends Dominio\AbstractModel
     public function setEstivativaTransporteId($estivativaTransporteId)
     {
         $this->estivativa_transporte_id = $estivativaTransporteId;
+    }
+
+    public function getIdMadeiraEnviosTransportadora()
+    {
+        return $this->id_madeira_envios_transportadora;
+    }
+
+    public function setIdMadeiraEnviosTransportadora($idMadeiraEnviosTransportadora)
+    {
+        $this->id_madeira_envios_transportadora = $idMadeiraEnviosTransportadora;
+    }
+
+    public function getTotal()
+    {
+        return $this->total;
+    }
+
+    public function setTotal($total)
+    {
+        $this->total = $total;
+    }
+
+    public function getPrazo()
+    {
+        return $this->prazo;
+    }
+
+    public function setPrazo($prazo)
+    {
+        $this->prazo = $prazo;
+    }
+
+    public function getExpedicao()
+    {
+        return $this->expedicao;
+    }
+
+    public function setExpedicao($expedicao)
+    {
+        $this->expedicao = $expedicao;
     }
 
 }

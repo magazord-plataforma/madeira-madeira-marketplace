@@ -86,6 +86,7 @@ class Pedido extends Dominio\AbstractModel
     protected $parcelado;
     protected $parcelas;
     protected $pagamento_fluxo;
+    protected $transportadoras;
 
     /**
      * Mapeamento de propriedades que sao objetos ou arrays
@@ -434,7 +435,7 @@ class Pedido extends Dominio\AbstractModel
     {
         $this->parcelado = $parcelado;
     }
-    
+
     public function getParcelas()
     {
         return $this->parcelas;
@@ -453,6 +454,16 @@ class Pedido extends Dominio\AbstractModel
     public function setPagamentoFluxo($pagamentoFluxo)
     {
         $this->pagamento_fluxo = $pagamentoFluxo;
+    }
+
+    public function getTransportadoras()
+    {
+        return $this->transportadoras;
+    }
+
+    public function setTransportadoras($transportadoras)
+    {
+        $this->transportadoras = $transportadoras;
     }
 
 }
