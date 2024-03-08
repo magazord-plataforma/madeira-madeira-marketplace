@@ -13,6 +13,7 @@ class TrackingFaturado extends TrackingItem
     protected $chave_acesso;
     protected $data_emissao;
     protected $valor;
+    protected $numero;
 
     public function getChaveAcesso()
     {
@@ -44,4 +45,13 @@ class TrackingFaturado extends TrackingItem
         $this->valor = $this->floatValue($valor);
     }
 
+    public function getNumero()
+    {
+        return $this->numero;
+    }
+
+    public function setNumero($numero)
+    {
+        $this->numero = $numero;
+    }
 }
