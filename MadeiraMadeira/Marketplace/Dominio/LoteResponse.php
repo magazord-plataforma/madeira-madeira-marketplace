@@ -19,7 +19,8 @@ class LoteResponse extends AbstractModel
      * @var array
      */
     protected $_mapper = array(
-        'meta' => Meta::class
+        'meta' => Meta::class,
+        'errors' => ErroLote::class
     );
 
     public function getMeta()
