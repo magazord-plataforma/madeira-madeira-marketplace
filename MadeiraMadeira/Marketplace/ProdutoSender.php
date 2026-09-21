@@ -99,7 +99,15 @@ class ProdutoSender extends CategoriaSender
             return $this->consultarAguardandoPorSku($filtro->getSku());
         } else if ($filtro->getTipoConsulta() == Dominio\Produto\ProdutoListFilter::TIPO_CONSULTA_AGUARDANDO_APROVACAO) {
             return $this->consultarAguardando($filtro);
-        }
+        } else if (($filtro->getTipoConsulta() == Dominio\Produto\ProdutoListFilter::TIPO_CONSULTA_NAO_COMERCIALIZADO) && $filtro->getSku()) {
+            return $this->consultarNaoComercializadoPorSku($filtro->getSku());
+        } else if ($filtro->getTipoConsulta() == Dominio\Produto\ProdutoListFilter::TIPO_CONSULTA_NAO_COMERCIALIZADO) {
+            return $this->consultarNaoComercializado($filtro);
+        } else if (($filtro->getTipoConsulta() == Dominio\Produto\ProdutoListFilter::TIPO_CONSULTA_EM_PUBLICACAO) && $filtro->getSku()) {
+            return $this->consultarEmPublicacaoPorSku($filtro->getSku());
+        } else if ($filtro->getTipoConsulta() == Dominio\Produto\ProdutoListFilter::TIPO_CONSULTA_EM_PUBLICACAO) {
+            return $this->consultarEmPublicacao($filtro);
+        }        
     }
 
     /**
@@ -297,6 +305,58 @@ class ProdutoSender extends CategoriaSender
         $this->setSuccessResponseClass(Dominio\Produto\ProdutoListResponse::class);
         return $this->send('/produto/aguardando/' . $sku);
     }
+
+    /**
+     * Busca produtos não comercializado com limmit e offset
+     * @param Dominio\ListFilter $filtro
+     * @return Dominio\Produto\ProdutoListResponse
+     */
+    public function consultarNaoComercializado(Dominio\ListFilter $filtro)
+    {
+        $this->reset();
+        $this->setMethod(self::METHOD_GET);
+        $this->setSuccessResponseClass(Dominio\Produto\ProdutoListResponse::class);
+        return $this->send('/produto/naocomercializado/limit=' . $filtro->getLimit() . '&offset=' . $filtro->getOffset());
+    }
+
+    /**
+     * Busca um produto não comercializado pelo seu sku
+     * @param string $sku
+     * @return Dominio\Produto\ProdutoListResponse
+     */
+    public function consultarNaoComercializadoPorSku($sku)
+    {
+        $this->reset();
+        $this->setMethod(self::METHOD_GET);
+        $this->setSuccessResponseClass(Dominio\Produto\ProdutoListResponse::class);
+        return $this->send('/produto/naocomercializado/' . $sku);
+    }
+    
+    /**
+     * Busca produtos em publicacao com limmit e offset
+     * @param Dominio\ListFilter $filtro
+     * @return Dominio\Produto\ProdutoListResponse
+     */
+    public function consultarEmPublicacao(Dominio\ListFilter $filtro)
+    {
+        $this->reset();
+        $this->setMethod(self::METHOD_GET);
+        $this->setSuccessResponseClass(Dominio\Produto\ProdutoListResponse::class);
+        return $this->send('/produto/empublicacao/limit=' . $filtro->getLimit() . '&offset=' . $filtro->getOffset());
+    }
+
+    /**
+     * Busca um produto em publicacao pelo seu sku
+     * @param string $sku
+     * @return Dominio\Produto\ProdutoListResponse
+     */
+    public function consultarEmPublicacaoPorSku($sku)
+    {
+        $this->reset();
+        $this->setMethod(self::METHOD_GET);
+        $this->setSuccessResponseClass(Dominio\Produto\ProdutoListResponse::class);
+        return $this->send('/produto/empublicacao/' . $sku);
+    }    
 
     /**
      * Atualiza preço de um ou vários SKUs
