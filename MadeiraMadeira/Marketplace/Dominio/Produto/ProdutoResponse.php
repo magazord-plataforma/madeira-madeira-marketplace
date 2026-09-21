@@ -16,6 +16,7 @@ class ProdutoResponse extends Produto
     const STATUS_DIVERGENCIA_INFORMACAO = 2;
     const STATUS_REPROVADO = 3;
     const STATUS_AGUARDANDO_CONFIRMACAO = 4;
+    const STATUS_NAO_COMERCIALIZADO = 9;
     // Status para produtos "Publicados"
     const STATUS_INATIVO = 0;
     const STATUS_ATIVO = 1;
